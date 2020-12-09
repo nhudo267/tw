@@ -14,3 +14,10 @@ router.get("/", (req, res, next) => {
         userLoggedInJs: JSON.stringify(req.session.user)
     });
 })
+router.get("/new", (req, res, next) => {
+    res.status(200).render("newMessage", {
+        pageTitle: "New message",
+        userLoggedIn: req.session.user,
+        userLoggedInJs: JSON.stringify(req.session.user)
+    });
+})

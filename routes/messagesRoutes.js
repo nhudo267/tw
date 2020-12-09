@@ -62,3 +62,27 @@ router.get("/:chatId", async (req, res, next) => {
 
     res.status(200).render("chatPage", payload);
 })
+function getChatByUserId(userLoggedInId, otherUserId) {
+    return Chat.findOneAndUpdate({
+        isGroupChat: false,
+        users: {
+            $size: 2,
+            $all: [
+                { $elemMatch: { $eq: mongoose.Types.ObjectId(userLoggedInId) }},
+                { $elemMatch: { $eq: mongoose.Types.ObjectId(otherUserId) }}
+            ]
+        }
+    },
+    {
+        $setOnInsert: {
+            users: [userLoggedInId, otherUserId]
+        }
+    },
+    {
+        new: true,
+        upsert: true
+    })
+    .populate("users");
+}
+
+module.exports = router;

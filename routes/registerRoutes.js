@@ -1,23 +1,4 @@
-registerRoutes.js
 
-Loại
-JavaScript
-Kích thước
-2 KB (1.936 byte)
-Bộ nhớ chiếm dụng
-2 KB (1.936 byte)
-Vị trí
-routes
-Chủ sở hữu
-tôi
-Lần sửa đổi gần đây nhất:
-15 thg 10, 2020 bởi tôi
-Được mở vào
-23:31 bởi tôi
-Đã tạo
-22:48 với Google Drive Web
-Thêm mô tả
-Người xem có thể tải xuống
 const express = require('express');
 const app = express();
 const router = express.Router();
